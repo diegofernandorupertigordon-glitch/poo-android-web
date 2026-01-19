@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Clases Abstractas | POO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Highlight.js -->
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+
+<body class="bg-light">
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="poo.html">⬅ Volver a POO</a>
+  </div>
+</nav>
+
+<!-- CONTENIDO -->
+
+<div class="container py-5">
+
+  <h1 class="display-5 mb-4">🏗️ Clases Abstractas</h1>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+
+```
+  <p>
+    Una <strong>clase abstracta</strong> sirve como una plantilla base.
+    No puede ser instanciada directamente y está pensada para ser heredada.
+  </p>
+
+  <h5>Características principales:</h5>
+  <ul>
+    <li>Pueden tener métodos abstractos y métodos implementados</li>
+    <li>Pueden tener atributos</li>
+    <li>Definen una estructura común para otras clases</li>
+  </ul>
+
+  <h5 class="mt-4">Ejemplo en Kotlin:</h5>
+
+  <pre><code class="language-kotlin">
+```
+
+abstract class Animal {
+
+```
+abstract fun sonido()
+
+fun dormir() {
+    println("El animal está durmiendo")
+}
+```
+
+}
+
+class Perro : Animal() {
+override fun sonido() {
+println("Guau")
+}
+} </code></pre>
+
+```
+</div>
+```
+
+  </div>
+
+</div>
+
+<!-- Highlight.js -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+</body>
+</html>

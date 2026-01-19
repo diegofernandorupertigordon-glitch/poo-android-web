@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>POO | Conceptos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Highlight.js -->
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+
+<body class="bg-light">
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="poo.html">⬅ Volver a POO</a>
+  </div>
+</nav>
+
+<!-- CONTENIDO -->
+
+<div class="container py-5">
+
+  <h1 class="display-5 mb-4">🧠 Programación Orientada a Objetos</h1>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+
+```
+  <p>
+    La <strong>Programación Orientada a Objetos (POO)</strong> es un paradigma
+    que organiza el código usando clases y objetos para facilitar la
+    reutilización, mantenimiento y escalabilidad.
+  </p>
+
+  <h5>Principios fundamentales:</h5>
+  <ul>
+    <li><strong>Encapsulación:</strong> proteger los datos</li>
+    <li><strong>Herencia:</strong> reutilizar código</li>
+    <li><strong>Polimorfismo:</strong> mismo método, distinto comportamiento</li>
+    <li><strong>Abstracción:</strong> mostrar solo lo esencial</li>
+  </ul>
+
+  <h5 class="mt-4">Ejemplo en Kotlin:</h5>
+
+  <pre><code class="language-kotlin">
+```
+
+open class Usuario(val nombre: String) {
+
+```
+open fun rol() {
+    println("Usuario estándar")
+}
+```
+
+}
+
+class Administrador(nombre: String) : Usuario(nombre) {
+
+```
+override fun rol() {
+    println("Administrador del sistema")
+}
+```
+
+} </code></pre>
+
+```
+</div>
+```
+
+  </div>
+
+</div>
+
+<!-- Highlight.js -->
+
+<script sr
