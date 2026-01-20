@@ -132,3 +132,22 @@ body.dark pre {
 iframe {
   border-radius: 14px;
 }
+/* =========================
+   BLOQUES DE CÓDIGO (SIEMPRE OSCUROS)
+========================= */
+
+pre {
+  background-color: #0d1117 !important;
+  color: #c9d1d9;
+  border-radius: 14px;
+  padding: 1.25rem;
+  overflow-x: auto;
+}
+
+pre code {
+  background: transparent !important;
+  color: inherit;
+  font-family: "Fira Code", Consolas, monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
