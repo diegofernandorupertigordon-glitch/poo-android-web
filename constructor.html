@@ -101,7 +101,7 @@
         una aplicación Android.
       </p>
 
-      <pre><code class="language-kotlin">
+     <pre><code class="language-kotlin">
 package app.application.practica
 
 import android.os.Bundle
@@ -130,7 +130,11 @@ class MainActivity : ComponentActivity() {
     // ====================
     // CLASE ESTUDIANTE
     // ====================
-    class Estudiante(val nombre: String, val carrera: String, val promedio: Double) {
+    class Estudiante(
+        val nombre: String,
+        val carrera: String,
+        val promedio: Double
+    ) {
         fun mostrarDatos(): String {
             return "$nombre estás cursando la carrera de: $carrera y tu promedio es de: $promedio"
         }
@@ -138,4 +142,26 @@ class MainActivity : ComponentActivity() {
 
     // ====================
     // CLASE PERSONA
-    // =======
+    // ====================
+    class Persona(val nombre: String, val edad: Int) {
+        fun mostrarDatos(): String {
+            return "$nombre tienes $edad años de edad."
+        }
+    }
+
+    // ====================
+    // MÉTODOS QUE DEVUELVEN VALORES
+    // ====================
+    fun pedirNombre(): String {
+        val nombreSimulado = "María"
+        println("Se ingresó el nombre: $nombreSimulado")
+        return nombreSimulado
+    }
+
+    fun pedirEdad(): Int {
+        val edadSimulada = 23
+        println("Se ingresó la edad: $edadSimulada")
+        return edadSimulada
+    }
+}
+</code></pre>
