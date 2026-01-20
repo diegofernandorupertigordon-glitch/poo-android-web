@@ -1,218 +1,134 @@
 /* =========================
    MODO OSCURO GLOBAL
 ========================= */
-
 body.dark {
   background-color: #121212;
   color: #e0e0e0;
 }
 
 body.dark .navbar,
-body.dark .footer {
+body.dark .poo-footer {
   background-color: #1e1e1e !important;
 }
 
-body.dark .card {
+body.dark .card,
+body.dark .poo-card {
   background-color: #1f1f1f;
   color: #e0e0e0;
 }
 
-body.dark a,
-body.dark .btn-outline-primary {
-  color: #90caf9;
-  border-color: #90caf9;
+/* =========================
+   HERO POO
+========================= */
+.poo-hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+  color: #fff;
 }
 
-body.dark .btn-outline-primary:hover {
-  background-color: #90caf9;
-  color: #121212;
+body.dark .poo-hero {
+  background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
 }
 
 /* =========================
-   CARDS ANIMADAS (INDEX)
+   CONTENEDOR Y GRID
 ========================= */
+.poo-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 20px;
+}
 
+.poo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* =========================
+   TARJETAS
+========================= */
 .poo-card {
-  border-radius: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px;
+  text-decoration: none;
+  color: #222;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
 .poo-card:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.15);
 }
 
-.poo-card .icon {
-  font-size: 2.5rem;
+/* ICONO */
+.poo-icon {
+  font-size: 40px;
   margin-bottom: 10px;
-  transition: transform 0.3s ease;
+  transition: transform .3s ease;
 }
 
-.poo-card:hover .icon {
+.poo-card:hover .poo-icon {
   transform: scale(1.2);
 }
 
-/* =========================
-   ANIMACIÓN SCROLL REVEAL
-========================= */
+/* BADGE */
+.poo-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #0d6efd;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+}
 
+body.dark .poo-badge {
+  background: #bb86fc;
+}
+
+/* =========================
+   ANIMACIÓN SCROLL
+========================= */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s ease;
 }
 
 .reveal.show {
   opacity: 1;
   transform: translateY(0);
+  transition: all .6s ease;
 }
+
 /* =========================
-   MEJORAS VISUALES GENERALES
+   FOOTER
 ========================= */
-
-.hero {
-  padding: 4rem 1rem;
-  background: linear-gradient(135deg, #0d6efd, #6610f2);
-  color: white;
+.poo-footer {
+  text-align: center;
+  padding: 25px;
+  background: #111;
+  color: #ccc;
+  margin-top: 60px;
 }
 
-.hero h1 {
-  font-weight: 700;
-}
-
-.hero p {
-  color: rgba(255,255,255,0.85);
-}
-
-/* Cards más elegantes */
-.card {
-  border-radius: 18px;
-  border: none;
-}
-
-/* Títulos */
-h1, h2, h5 {
-  font-weight: 600;
-}
-
-/* Código */
+/* =========================
+   CÓDIGO Y MEDIA
+========================= */
 pre {
   border-radius: 14px;
   padding: 1rem;
-}
-
-/* Video */
-iframe {
-  border-radius: 14px;
-}
-
-/* Footer */
-.footer {
-  background: #f8f9fa;
-  padding: 1rem;
-  margin-top: 4rem;
-  font-size: 0.9rem;
-}
-
-/* =========================
-   MODO OSCURO MEJORADO
-========================= */
-
-body.dark .hero {
-  background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
 }
 
 body.dark pre {
   background-color: #0d1117;
 }
 
-body.dark .footer {
-  background-color: #1e1e1e;
-}
-/* ===== POO MENU ===== */
-
-.poo-hero {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, #1e1e2f, #2b2b45);
-    color: #fff;
-}
-
-.poo-container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 60px 20px;
-}
-
-.poo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-}
-
-.poo-card {
-    background: #ffffff;
-    border-radius: 18px;
-    padding: 30px;
-    text-decoration: none;
-    color: #222;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    transition: transform .3s ease, box-shadow .3s ease;
-}
-
-.poo-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.15);
-}
-
-.poo-icon {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-.poo-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #0d6efd;
-    color: #fff;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-}
-
-.poo-footer {
-    text-align: center;
-    padding: 25px;
-    background: #111;
-    color: #ccc;
-}
-
-/* ===== ANIMACIÓN ===== */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
-    transition: all .6s ease;
-}
-
-/* ===== MODO OSCURO ===== */
-body.dark {
-    background: #121212;
-    color: #e0e0e0;
-}
-
-body.dark .poo-card {
-    background: #1e1e1e;
-    color: #e0e0e0;
-}
-
-body.dark .poo-badge {
-    background: #bb86fc;
+iframe {
+  border-radius: 14px;
 }
