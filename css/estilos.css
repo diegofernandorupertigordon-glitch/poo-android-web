@@ -67,3 +67,66 @@ body.dark .btn-outline-primary:hover {
   opacity: 1;
   transform: translateY(0);
 }
+/* =========================
+   MEJORAS VISUALES GENERALES
+========================= */
+
+.hero {
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, #0d6efd, #6610f2);
+  color: white;
+}
+
+.hero h1 {
+  font-weight: 700;
+}
+
+.hero p {
+  color: rgba(255,255,255,0.85);
+}
+
+/* Cards más elegantes */
+.card {
+  border-radius: 18px;
+  border: none;
+}
+
+/* Títulos */
+h1, h2, h5 {
+  font-weight: 600;
+}
+
+/* Código */
+pre {
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+/* Video */
+iframe {
+  border-radius: 14px;
+}
+
+/* Footer */
+.footer {
+  background: #f8f9fa;
+  padding: 1rem;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+}
+
+/* =========================
+   MODO OSCURO MEJORADO
+========================= */
+
+body.dark .hero {
+  background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
+}
+
+body.dark pre {
+  background-color: #0d1117;
+}
+
+body.dark .footer {
+  background-color: #1e1e1e;
+}
