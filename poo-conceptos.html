@@ -10,12 +10,16 @@
 
   <!-- Highlight.js -->
   <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+  <!-- CSS propio -->
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body class="bg-light">
 
-<nav class="navbar navbar-dark bg-dark">
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark bg-dark shadow-sm">
   <div class="container d-flex justify-content-between align-items-center">
     <a class="navbar-brand" href="index.html">⬅ Volver al inicio</a>
 
@@ -25,6 +29,7 @@
   </div>
 </nav>
 
+<!-- CONTENIDO -->
 <div class="container py-5">
 
   <h1 class="display-5 mb-4">🧠 Programación Orientada a Objetos</h1>
@@ -59,7 +64,8 @@
       </div>
 
       <p class="mt-2">
-        👉 <a href="https://drive.google.com/file/d/1-yJM15u1rrRdKHWtCC5J7aY_S9N11NJn/view" target="_blank">
+        👉 <a href="https://drive.google.com/file/d/1-yJM15u1rrRdKHWtCC5J7aY_S9N11NJn/view"
+             target="_blank">
           Ver video explicativo
         </a>
       </p>
@@ -86,9 +92,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // ====================
-        // ACTIVIDAD 1: Crear estudiante y mostrar datos
-        // ====================
         val estudiante = Estudiante()
         estudiante.nombre = "Juan"
         estudiante.edad = 21
@@ -96,9 +99,6 @@ class MainActivity : ComponentActivity() {
         estudiante.promedio = 8.7
         println(estudiante.mostrarDatos())
 
-        // ====================
-        // ACTIVIDAD 2: Crear otro estudiante y mostrar nuevos datos
-        // ====================
         val e = Estudiante()
         e.nombre = "María"
         e.edad = 23
@@ -107,9 +107,6 @@ class MainActivity : ComponentActivity() {
         println(e.mostrarDatos())
     }
 
-    // ====================
-    // CLASE ESTUDIANTE
-    // ====================
     class Estudiante {
         var nombre: String = ""
         var edad: Int = 0
@@ -117,7 +114,7 @@ class MainActivity : ComponentActivity() {
         var promedio: Double = 0.0
 
         fun mostrarDatos(): String {
-            return "$nombre tienes $edad años de edad, estás cursando la carrera de: $carrera y tu promedio es de: $promedio"
+            return "$nombre tienes $edad años, cursas $carrera y tu promedio es $promedio"
         }
     }
 }
@@ -134,7 +131,7 @@ class MainActivity : ComponentActivity() {
   hljs.highlightAll();
 </script>
 
-<!-- Dark mode -->
+<!-- Modo oscuro -->
 <script>
   const btn = document.getElementById("darkModeBtn");
 
