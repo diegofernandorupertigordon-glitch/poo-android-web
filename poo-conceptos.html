@@ -34,16 +34,16 @@
 
       <p>
         La <strong>Programación Orientada a Objetos (POO)</strong> es un paradigma
-        que organiza el código usando clases y objetos para facilitar la
-        reutilización, mantenimiento y escalabilidad.
+        de programación que organiza el software mediante clases y objetos,
+        facilitando la reutilización, el mantenimiento y la escalabilidad del código.
       </p>
 
       <h5>Principios fundamentales:</h5>
       <ul>
-        <li><strong>Encapsulación:</strong> proteger los datos</li>
-        <li><strong>Herencia:</strong> reutilizar código</li>
-        <li><strong>Polimorfismo:</strong> mismo método, distinto comportamiento</li>
-        <li><strong>Abstracción:</strong> mostrar solo lo esencial</li>
+        <li><strong>Encapsulación:</strong> protege los datos</li>
+        <li><strong>Herencia:</strong> permite reutilizar código</li>
+        <li><strong>Polimorfismo:</strong> un método con distintos comportamientos</li>
+        <li><strong>Abstracción:</strong> muestra solo lo esencial</li>
       </ul>
 
       <!-- VIDEO -->
@@ -64,21 +64,61 @@
         </a>
       </p>
 
-      <!-- CÓDIGO -->
-      <h5 class="mt-4">Ejemplo en Kotlin:</h5>
+      <hr class="my-4">
+
+      <!-- EVIDENCIA -->
+      <h2>📄 Evidencia de la tarea – Código en Kotlin</h2>
+
+      <p>
+        El siguiente código corresponde a la práctica realizada en Android usando
+        <strong>Kotlin</strong>, donde se aplica el paradigma de Programación Orientada
+        a Objetos mediante la creación de clases, atributos, métodos y objetos.
+      </p>
 
       <pre><code class="language-kotlin">
-open class Usuario(val nombre: String) {
+package app.application.practica
 
-    open fun rol() {
-        println("Usuario estándar")
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+
+class MainActivity : ComponentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // ====================
+        // ACTIVIDAD 1: Crear estudiante y mostrar datos
+        // ====================
+        val estudiante = Estudiante()
+        estudiante.nombre = "Juan"
+        estudiante.edad = 21
+        estudiante.carrera = "Tecnología"
+        estudiante.promedio = 8.7
+        println(estudiante.mostrarDatos())
+
+        // ====================
+        // ACTIVIDAD 2: Crear otro estudiante y mostrar nuevos datos
+        // ====================
+        val e = Estudiante()
+        e.nombre = "María"
+        e.edad = 23
+        e.carrera = "Sistemas"
+        e.promedio = 9.2
+        println(e.mostrarDatos())
     }
-}
 
-class Administrador(nombre: String) : Usuario(nombre) {
+    // ====================
+    // CLASE ESTUDIANTE
+    // ====================
+    class Estudiante {
+        var nombre: String = ""
+        var edad: Int = 0
+        var carrera: String = ""
+        var promedio: Double = 0.0
 
-    override fun rol() {
-        println("Administrador del sistema")
+        fun mostrarDatos(): String {
+            return "$nombre tienes $edad años de edad, estás cursando la carrera de: $carrera y tu promedio es de: $promedio"
+        }
     }
 }
       </code></pre>
