@@ -50,12 +50,13 @@
       <p>
         Un control remoto es siempre el mismo, pero puede controlar distintos dispositivos.
         Al presionar un botón, cada dispositivo responde de forma diferente.
-        Así funciona el polimorfismo: el método es el mismo, pero el comportamiento cambia.
+        Así funciona el polimorfismo.
       </p>
 
+      <h6 class="mt-3">📌 Versión corta (para el profesor)</h6>
       <p>
         El polimorfismo permite que una referencia de una clase padre
-        ejecute métodos diferentes según el objeto real al que apunte,
+        ejecute métodos distintos según el objeto real,
         resolviéndose en tiempo de ejecución.
       </p>
     </div>
@@ -88,9 +89,9 @@
     <div class="card-body">
       <h4>🧪 Ejemplo práctico: Sistema de Empleados</h4>
       <p>
-        En este ejemplo, se utiliza una clase abstracta <strong>Empleado</strong>
-        y varias clases hijas. Todas implementan el método <code>salario()</code>,
-        pero cada una lo hace de forma diferente.
+        Se utiliza una sola referencia de la clase abstracta
+        <strong>Empleado</strong>, la cual apunta a distintos tipos de empleados.
+        Cada uno ejecuta su propia versión del método <code>salario()</code>.
       </p>
     </div>
   </div>
@@ -98,50 +99,60 @@
   <!-- CÓDIGO -->
   <div class="card shadow-sm">
     <div class="card-body">
-      <h4>📄 Código en Java – Evidencia del Polimorfismo</h4>
+      <h4>📄 Código en Kotlin – Evidencia del Polimorfismo</h4>
 
-      <pre><code class="language-java">
-// Clase abstracta padre
-abstract class Empleado {
-    public abstract float salario();
-}
+      <pre><code class="language-kotlin">
+package app.application.practica
 
-// Clases hijas
-class Docente extends Empleado {
-    @Override
-    public float salario() {
-        return 2500.0f;
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        println("===== EJEMPLO DE POLIMORFISMO =====")
+
+        // UNA SOLA referencia de la clase padre
+        var empleado: Empleado
+
+        empleado = Docente()
+        println("Salario del Docente: $" + empleado.salario())
+
+        empleado = Administrativo()
+        println("Salario del Administrativo: $" + empleado.salario())
+
+        empleado = Obrero()
+        println("Salario del Obrero: $" + empleado.salario())
+
+        println("===== FIN DEL PROGRAMA =====")
     }
-}
 
-class Administrativo extends Empleado {
-    @Override
-    public float salario() {
-        return 2000.0f;
+    // CLASE PADRE ABSTRACTA
+    abstract class Empleado {
+        abstract fun salario(): Float
     }
-}
 
-class Obrero extends Empleado {
-    @Override
-    public float salario() {
-        return 1800.0f;
+    // CLASE HIJA: DOCENTE
+    class Docente : Empleado() {
+        override fun salario(): Float {
+            return 2500.0f
+        }
     }
-}
 
-// Clase principal
-public class Main {
-    public static void main(String[] args) {
+    // CLASE HIJA: ADMINISTRATIVO
+    class Administrativo : Empleado() {
+        override fun salario(): Float {
+            return 2000.0f
+        }
+    }
 
-        Empleado e; // Una sola referencia
-
-        e = new Docente();
-        System.out.println("Salario Docente: $" + e.salario());
-
-        e = new Administrativo();
-        System.out.println("Salario Administrativo: $" + e.salario());
-
-        e = new Obrero();
-        System.out.println("Salario Obrero: $" + e.salario());
+    // CLASE HIJA: OBRERO
+    class Obrero : Empleado() {
+        override fun salario(): Float {
+            return 1800.0f
+        }
     }
 }
       </code></pre>
@@ -149,7 +160,7 @@ public class Main {
       <p class="mt-3">
         Aunque la referencia siempre es de tipo <strong>Empleado</strong>,
         el método <code>salario()</code> se ejecuta según el objeto real,
-        demostrando el uso del polimorfismo.
+        demostrando claramente el polimorfismo.
       </p>
     </div>
   </div>
