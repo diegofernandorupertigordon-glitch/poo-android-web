@@ -6,26 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Bootstrap -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Highlight.js -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
-  >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 
   <!-- CSS propio -->
   <link rel="stylesheet" href="css/estilos.css">
 </head>
-
-<!-- Highlight.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script>
-     hljs.highlightAll();
-    </script>
 
 <body class="bg-light">
 
@@ -71,7 +59,7 @@
       <div class="card shadow-sm p-3 mb-3">
         <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
           <iframe
-            src="PEGA_AQUI_TU_LINK_DE_DRIVE/preview"
+            src="https://drive.google.com/file/d/1-JJXpXHtjEVbIQUOMAHDzso0EOuEcux2/preview"
             style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
             allow="autoplay; encrypted-media"
             allowfullscreen>
@@ -81,12 +69,60 @@
 
       <p class="mt-2">
         👉
-        <a
-          href="PEGA_AQUI_TU_LINK_DE_DRIVE/view"
-          target="_blank">
-          Ver video explicativo
+        <a href="https://drive.google.com/file/d/1-JJXpXHtjEVbIQUOMAHDzso0EOuEcux2/view?usp=sharing" target="_blank">
+          Ver video explicativo en Google Drive
         </a>
       </p>
+
+      <hr class="my-4">
+
+      <!-- =======================
+           PREGUNTAS Y RESPUESTAS
+      ======================== -->
+      <h2>❓ Preguntas y respuestas</h2>
+
+      <h5>¿Qué es el constructor?</h5>
+      <p>
+        El constructor es un método especial que se ejecuta automáticamente
+        cuando se crea un objeto. En el código presentado, se utiliza para
+        inicializar los datos de las clases <strong>Estudiante</strong> y
+        <strong>Persona</strong>.
+      </p>
+
+      <h5>¿Cómo crear un constructor?</h5>
+      <p>
+        En Kotlin, el constructor se define directamente en la declaración
+        de la clase, indicando los parámetros que recibirá.
+      </p>
+
+      <pre><code class="language-kotlin">
+class Estudiante(
+    val nombre: String,
+    val carrera: String,
+    val promedio: Double
+)
+      </code></pre>
+
+      <h5>¿Cómo crear objetos usando el constructor?</h5>
+      <p>
+        Para crear un objeto, se utiliza el nombre de la clase y se envían
+        los valores requeridos por el constructor.
+      </p>
+
+      <pre><code class="language-kotlin">
+val estudiante = Estudiante("Juan", "Tecnología", 8.7)
+      </code></pre>
+
+      <h5>¿Cómo crear múltiples objetos con constructor?</h5>
+      <p>
+        Se pueden crear varios objetos de la misma clase utilizando el
+        constructor, cambiando los valores de los parámetros.
+      </p>
+
+      <pre><code class="language-kotlin">
+val estudiante1 = Estudiante("Juan", "Tecnología", 8.7)
+val estudiante2 = Estudiante("María", "Sistemas", 9.2)
+      </code></pre>
 
       <hr class="my-4">
 
@@ -101,7 +137,7 @@
         una aplicación Android.
       </p>
 
-     <pre><code class="language-kotlin">
+<pre><code class="language-kotlin">
 package app.application.practica
 
 import android.os.Bundle
@@ -112,56 +148,59 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // ====================
-        // ACTIVIDAD 1: Clase Estudiante con constructor
-        // ====================
+        // ACTIVIDAD 1
         val estudiante = Estudiante("Juan", "Tecnología", 8.7)
-        println("=== Actividad 1 ===")
         println(estudiante.mostrarDatos())
 
-        // ====================
-        // ACTIVIDAD 2: Clase Persona y métodos que devuelven valores
-        // ====================
+        // ACTIVIDAD 2
         val persona = Persona(pedirNombre(), pedirEdad())
-        println("=== Actividad 2 ===")
         println(persona.mostrarDatos())
     }
 
-    // ====================
-    // CLASE ESTUDIANTE
-    // ====================
     class Estudiante(
         val nombre: String,
         val carrera: String,
         val promedio: Double
     ) {
         fun mostrarDatos(): String {
-            return "$nombre estás cursando la carrera de: $carrera y tu promedio es de: $promedio"
+            return "$nombre estás cursando $carrera con promedio $promedio"
         }
     }
 
-    // ====================
-    // CLASE PERSONA
-    // ====================
     class Persona(val nombre: String, val edad: Int) {
         fun mostrarDatos(): String {
-            return "$nombre tienes $edad años de edad."
+            return "$nombre tienes $edad años."
         }
     }
 
-    // ====================
-    // MÉTODOS QUE DEVUELVEN VALORES
-    // ====================
-    fun pedirNombre(): String {
-        val nombreSimulado = "María"
-        println("Se ingresó el nombre: $nombreSimulado")
-        return nombreSimulado
-    }
-
-    fun pedirEdad(): Int {
-        val edadSimulada = 23
-        println("Se ingresó la edad: $edadSimulada")
-        return edadSimulada
-    }
+    fun pedirNombre(): String = "María"
+    fun pedirEdad(): Int = 23
 }
 </code></pre>
+
+    </div>
+  </div>
+</main>
+
+<!-- =======================
+     SCRIPTS
+======================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<script>
+  const btn = document.getElementById("darkModeBtn");
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark");
+  }
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    localStorage.setItem(
+      "darkMode",
+      document.body.classList.contains("dark") ? "enabled" : "disabled"
+    );
+  });
+</script>
+
+</body>
+</html>
