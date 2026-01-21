@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 
-<body>
+<body class="bg-light">
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-dark bg-dark shadow-sm">
@@ -37,20 +37,21 @@
     <div class="card-body">
       <h4>📘 ¿Qué es una interfaz?</h4>
       <p>
-        Una <strong>interfaz</strong> es un conjunto de métodos abstractos que define
-        un <em>contrato</em> que las clases deben cumplir.  
-        Cuando una clase implementa una interfaz, está obligada a proporcionar
-        una implementación concreta de todos sus métodos.
+        Una <strong>interfaz</strong> es un conjunto de métodos abstractos que
+        define un <strong>contrato</strong> que las clases deben cumplir.
+        Cuando una clase implementa una interfaz, está obligada a implementar
+        todos sus métodos.
       </p>
 
       <p>
-        La interfaz no indica <strong>cómo</strong> se realizan las acciones,
-        únicamente define <strong>qué acciones deben existir</strong>.
+        La interfaz no indica cómo se realizan las acciones, únicamente
+        especifica qué métodos deben existir.
       </p>
 
       <p>
         🔌 <strong>Analogía:</strong> una interfaz es como un enchufe eléctrico.
-        El enchufe define la forma de conexión, pero no qué hará el dispositivo.
+        Todos los dispositivos usan el mismo enchufe, pero cada uno funciona
+        de manera diferente.
       </p>
     </div>
   </div>
@@ -61,17 +62,29 @@
       <h4>🧮 Actividad 1: Calculadora usando Interfaces</h4>
 
       <p>
-        Se crea la interfaz <strong>Operacion</strong> con métodos para operaciones
-        matemáticas básicas. Posteriormente, la clase
-        <strong>Matematica</strong> implementa esta interfaz.
+        En esta actividad se crea la interfaz <strong>Operacion</strong>, la cual
+        define los métodos básicos de una calculadora.
+        Luego, la clase <strong>Matematica</strong> implementa esta interfaz.
       </p>
 
       <!-- VIDEO ACTIVIDAD 1 -->
-      <div class="ratio ratio-16x9 mb-3">
-        <iframe src="LINK_DEL_VIDEO_1"
-                title="Video Actividad 1"
-                allowfullscreen></iframe>
+      <div class="card shadow-sm p-3 mb-3">
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+          <iframe
+            src="https://drive.google.com/file/d/1-zUh17VmqEd5g49F6ptKLJK6iZggRKDH/preview"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
+
+      <p>
+        👉
+        <a href="https://drive.google.com/file/d/1-zUh17VmqEd5g49F6ptKLJK6iZggRKDH/view?usp=sharing"
+           target="_blank">
+          Ver video Actividad 1
+        </a>
+      </p>
 
       <!-- CÓDIGO -->
       <pre><code class="language-kotlin">
@@ -98,12 +111,7 @@ class Matematica : Operacion {
     }
 
     override fun dividir(a: Int, b: Int): Float {
-        return if (b != 0) {
-            a.toFloat() / b
-        } else {
-            println("Error: no se puede dividir por cero")
-            0f
-        }
+        return if (b != 0) a.toFloat() / b else 0f
     }
 }
       </code></pre>
@@ -116,22 +124,16 @@ class Matematica : Operacion {
       <h4>🔬 Actividad 2: Interfaces avanzadas</h4>
 
       <p>
-        Se implementa una segunda clase llamada
-        <strong>CalculadoraCientifica</strong>, la cual extiende
-        la funcionalidad agregando potencias y raíces cuadradas.
-      </p>
-
-      <p>
-        Además, se crea la interfaz <strong>FiguraGeometrica</strong>
-        para calcular área y perímetro, siendo implementada por
-        las clases <strong>Cuadrado</strong> y <strong>Rectangulo</strong>.
+        En esta actividad se amplía el uso de interfaces creando una
+        <strong>CalculadoraCientifica</strong> y la interfaz
+        <strong>FiguraGeometrica</strong>.
       </p>
 
       <!-- VIDEO ACTIVIDAD 2 -->
-      <div class="ratio ratio-16x9 mb-3">
-        <iframe src="LINK_DEL_VIDEO_2"
-                title="Video Actividad 2"
-                allowfullscreen></iframe>
+      <div class="card shadow-sm p-3 mb-3">
+        <div class="text-center text-muted">
+          📹 Video Actividad 2 (agregar enlace si aplica)
+        </div>
       </div>
 
       <!-- CÓDIGO -->
@@ -152,50 +154,64 @@ class CalculadoraCientifica : Operacion {
         return Math.sqrt(numero.toDouble())
     }
 }
-
-interface FiguraGeometrica {
-    fun area(): Double
-    fun perimetro(): Double
-}
-
-class Cuadrado(private val lado: Double) : FiguraGeometrica {
-    override fun area(): Double = lado * lado
-    override fun perimetro(): Double = lado * 4
-}
-
-class Rectangulo(
-    private val base: Double,
-    private val altura: Double
-) : FiguraGeometrica {
-    override fun area(): Double = base * altura
-    override fun perimetro(): Double = 2 * (base + altura)
-}
       </code></pre>
     </div>
   </div>
 
-  <!-- ACTIVIDAD TEÓRICA -->
+  <!-- PREGUNTAS Y RESPUESTAS -->
   <div class="card shadow-sm">
     <div class="card-body">
-      <h4>📌 Actividad Teórica</h4>
+      <h4>❓ Preguntas y Respuestas</h4>
 
+      <h6>¿Qué es un objeto?</h6>
       <p>
-        Si una clase implementa una interfaz pero <strong>no implementa
-        todos sus métodos</strong>, el compilador genera un error
-        y el programa no puede ejecutarse.
+        Un objeto es una instancia de una clase. Representa algo concreto
+        que puede usar propiedades y métodos definidos en la clase.
       </p>
 
+      <h6>¿Cómo crear un objeto?</h6>
       <p>
-        <strong>Error típico en Kotlin:</strong>
+        Un objeto se crea usando el nombre de la clase. Ejemplo:
       </p>
 
-      <pre><code class="language-text">
-Class 'X' is not abstract and does not implement abstract member
+      <pre><code class="language-kotlin">
+val calculadora = Matematica()
       </code></pre>
 
+      <h6>¿Qué son las propiedades (atributos)?</h6>
       <p>
-        Esto ocurre porque la interfaz actúa como un contrato obligatorio
-        que debe cumplirse completamente.
+        Son las variables que almacenan información dentro de una clase.
+      </p>
+
+      <h6>¿Qué son los métodos?</h6>
+      <p>
+        Son funciones que definen el comportamiento de una clase u objeto.
+      </p>
+
+      <h6>¿Qué es una clase?</h6>
+      <p>
+        Una clase es una plantilla que define las propiedades y métodos
+        que tendrán sus objetos.
+      </p>
+
+      <h6>¿Cómo crear una clase?</h6>
+      <pre><code class="language-kotlin">
+class Matematica : Operacion { }
+      </code></pre>
+
+      <h6>¿Cómo acceder a propiedades y métodos?</h6>
+      <p>
+        Se accede usando el objeto seguido del punto:
+      </p>
+
+      <pre><code class="language-kotlin">
+calculadora.sumar(10, 5)
+      </code></pre>
+
+      <h6>¿Entrada de datos por teclado?</h6>
+      <p>
+        En Android no se usa directamente el teclado como en consola,
+        pero se pueden simular datos o usar campos de texto (EditText).
       </p>
     </div>
   </div>
@@ -207,8 +223,17 @@ Class 'X' is not abstract and does not implement abstract member
 <script>hljs.highlightAll();</script>
 
 <script>
-  document.getElementById("darkModeBtn")
-    .addEventListener("click", () => document.body.classList.toggle("dark"));
+  const btn = document.getElementById("darkModeBtn");
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark");
+  }
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    localStorage.setItem(
+      "darkMode",
+      document.body.classList.contains("dark") ? "enabled" : "disabled"
+    );
+  });
 </script>
 
 </body>
