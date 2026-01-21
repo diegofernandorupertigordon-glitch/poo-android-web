@@ -37,21 +37,17 @@
     <div class="card-body">
       <h4>📘 ¿Qué es una interfaz?</h4>
       <p>
-        Una <strong>interfaz</strong> es un conjunto de métodos abstractos que
-        define un <strong>contrato</strong> que las clases deben cumplir.
-        Cuando una clase implementa una interfaz, está obligada a implementar
-        todos sus métodos.
+        Una <strong>interfaz</strong> es una estructura que define métodos
+        que una clase debe implementar obligatoriamente.
+        Funciona como un <strong>contrato</strong>.
       </p>
-
       <p>
-        La interfaz no indica cómo se realizan las acciones, únicamente
-        especifica qué métodos deben existir.
+        La interfaz no indica cómo se realizan las acciones,
+        solo especifica qué métodos deben existir.
       </p>
-
       <p>
-        🔌 <strong>Analogía:</strong> una interfaz es como un enchufe eléctrico.
-        Todos los dispositivos usan el mismo enchufe, pero cada uno funciona
-        de manera diferente.
+        🔌 <strong>Ejemplo:</strong> la interfaz define las reglas y la clase
+        se encarga de cumplirlas.
       </p>
     </div>
   </div>
@@ -62,12 +58,12 @@
       <h4>🧮 Actividad 1: Calculadora usando Interfaces</h4>
 
       <p>
-        En esta actividad se crea la interfaz <strong>Operacion</strong>, la cual
-        define los métodos básicos de una calculadora.
+        En esta actividad se crea la interfaz <strong>Operacion</strong>,
+        la cual define los métodos básicos de una calculadora.
         Luego, la clase <strong>Matematica</strong> implementa esta interfaz.
       </p>
 
-      <!-- VIDEO ACTIVIDAD 1 -->
+      <!-- VIDEO -->
       <div class="card shadow-sm p-3 mb-3">
         <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
           <iframe
@@ -82,7 +78,7 @@
         👉
         <a href="https://drive.google.com/file/d/1-zUh17VmqEd5g49F6ptKLJK6iZggRKDH/view?usp=sharing"
            target="_blank">
-          Ver video Actividad 1
+          Ver video de la Actividad 1
         </a>
       </p>
 
@@ -121,22 +117,14 @@ class Matematica : Operacion {
   <!-- ACTIVIDAD 2 -->
   <div class="card shadow-sm mb-4">
     <div class="card-body">
-      <h4>🔬 Actividad 2: Interfaces avanzadas</h4>
+      <h4>🔬 Actividad 2: Calculadora Científica</h4>
 
       <p>
-        En esta actividad se amplía el uso de interfaces creando una
-        <strong>CalculadoraCientifica</strong> y la interfaz
-        <strong>FiguraGeometrica</strong>.
+        En esta actividad se amplía el uso de interfaces creando la clase
+        <strong>CalculadoraCientifica</strong>, que agrega operaciones
+        más avanzadas.
       </p>
 
-      <!-- VIDEO ACTIVIDAD 2 -->
-      <div class="card shadow-sm p-3 mb-3">
-        <div class="text-center text-muted">
-          📹 Video Actividad 2 (agregar enlace si aplica)
-        </div>
-      </div>
-
-      <!-- CÓDIGO -->
       <pre><code class="language-kotlin">
 class CalculadoraCientifica : Operacion {
 
@@ -159,62 +147,101 @@ class CalculadoraCientifica : Operacion {
   </div>
 
   <!-- PREGUNTAS Y RESPUESTAS -->
-  <div class="card shadow-sm">
-    <div class="card-body">
-      <h4>❓ Preguntas y Respuestas</h4>
+<div class="card shadow-sm mb-4">
+  <div class="card-body">
+    <h4>❓ Preguntas y Respuestas – Interfaces</h4>
 
-      <h6>¿Qué es un objeto?</h6>
-      <p>
-        Un objeto es una instancia de una clase. Representa algo concreto
-        que puede usar propiedades y métodos definidos en la clase.
-      </p>
+    <!-- 1 -->
+    <h6>¿Qué es una interfaz?</h6>
+    <p>
+      Una interfaz es una estructura que define métodos que una clase
+      debe implementar obligatoriamente. Funciona como un contrato
+      que indica qué métodos deben existir, pero no cómo se realizan.
+    </p>
 
-      <h6>¿Cómo crear un objeto?</h6>
-      <p>
-        Un objeto se crea usando el nombre de la clase. Ejemplo:
-      </p>
+    <!-- 2 -->
+    <h6>Sintaxis para crear una interfaz</h6>
+    <p>
+      Una interfaz se crea usando la palabra reservada <strong>interface</strong>,
+      seguida del nombre de la interfaz y los métodos sin implementación.
+    </p>
 
-      <pre><code class="language-kotlin">
+    <pre><code class="language-kotlin">
+interface Operacion {
+
+    fun sumar(a: Int, b: Int): Int
+    fun restar(a: Int, b: Int): Int
+    fun multiplicar(a: Int, b: Int): Int
+    fun dividir(a: Int, b: Int): Float
+}
+    </code></pre>
+
+    <!-- 3 -->
+    <h6>¿Cómo crear métodos abstractos?</h6>
+    <p>
+      Los métodos abstractos en una interfaz solo se declaran,
+      no tienen cuerpo ni código. La implementación se realiza
+      en la clase que implementa la interfaz.
+    </p>
+
+    <!-- 4 -->
+    <h6>Implementando la interfaz</h6>
+    <p>
+      Para implementar una interfaz se utiliza el símbolo
+      <strong>:</strong> seguido del nombre de la interfaz.
+      La clase está obligada a implementar todos los métodos.
+    </p>
+
+    <pre><code class="language-kotlin">
+class Matematica : Operacion {
+
+    override fun sumar(a: Int, b: Int): Int {
+        return a + b
+    }
+
+    override fun restar(a: Int, b: Int): Int {
+        return a - b
+    }
+
+    override fun multiplicar(a: Int, b: Int): Int {
+        return a * b
+    }
+
+    override fun dividir(a: Int, b: Int): Float {
+        return if (b != 0) a.toFloat() / b else 0f
+    }
+}
+    </code></pre>
+
+    <!-- 5 -->
+    <h6>Usando la clase que implementa la interfaz</h6>
+    <p>
+      Una vez que la clase implementa la interfaz, se puede crear
+      un objeto y usar sus métodos normalmente.
+    </p>
+
+    <pre><code class="language-kotlin">
 val calculadora = Matematica()
-      </code></pre>
+println(calculadora.sumar(10, 5))
+    </code></pre>
 
-      <h6>¿Qué son las propiedades (atributos)?</h6>
-      <p>
-        Son las variables que almacenan información dentro de una clase.
-      </p>
+    <!-- 6 -->
+    <h6>Ventajas de usar interfaces</h6>
+    <ul>
+      <li>Permiten organizar mejor el código</li>
+      <li>Facilitan el uso del polimorfismo</li>
+      <li>Obligan a cumplir un contrato</li>
+      <li>Permiten que distintas clases usen la misma interfaz</li>
+      <li>Hacen el código más mantenible y escalable</li>
+    </ul>
 
-      <h6>¿Qué son los métodos?</h6>
-      <p>
-        Son funciones que definen el comportamiento de una clase u objeto.
-      </p>
-
-      <h6>¿Qué es una clase?</h6>
-      <p>
-        Una clase es una plantilla que define las propiedades y métodos
-        que tendrán sus objetos.
-      </p>
-
-      <h6>¿Cómo crear una clase?</h6>
-      <pre><code class="language-kotlin">
-class Matematica : Operacion { }
-      </code></pre>
-
-      <h6>¿Cómo acceder a propiedades y métodos?</h6>
-      <p>
-        Se accede usando el objeto seguido del punto:
-      </p>
-
-      <pre><code class="language-kotlin">
-calculadora.sumar(10, 5)
-      </code></pre>
-
-      <h6>¿Entrada de datos por teclado?</h6>
-      <p>
-        En Android no se usa directamente el teclado como en consola,
-        pero se pueden simular datos o usar campos de texto (EditText).
-      </p>
-    </div>
+    <p>
+      En esta práctica, tanto <strong>Matematica</strong> como
+      <strong>CalculadoraCientifica</strong> pueden implementar
+      la misma interfaz <strong>Operacion</strong>.
+    </p>
   </div>
+</div>
 
 </main>
 

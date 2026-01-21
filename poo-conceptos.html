@@ -142,6 +142,95 @@ class MainActivity : ComponentActivity() {
 
       </div>
     </div>
+<!-- PREGUNTAS Y RESPUESTAS -->
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h4>❓ Preguntas y Respuestas – Conceptos de POO</h4>
+
+    <!-- 1 -->
+    <h6>¿Qué es una clase?</h6>
+    <p>
+      Una clase es una plantilla que sirve para crear objetos.
+      En ella se definen los atributos y métodos que tendrán
+      los objetos.
+    </p>
+
+    <pre><code class="language-kotlin">
+class Estudiante {
+    var nombre: String = ""
+    var edad: Int = 0
+    var carrera: String = ""
+    var promedio: Double = 0.0
+}
+    </code></pre>
+
+    <!-- 2 -->
+    <h6>¿Qué es un objeto?</h6>
+    <p>
+      Un objeto es una instancia de una clase. Representa a un
+      estudiante real creado a partir de la clase Estudiante.
+    </p>
+
+    <!-- 3 -->
+    <h6>¿Cómo crear un objeto?</h6>
+    <p>
+      Un objeto se crea utilizando el nombre de la clase y paréntesis.
+      En el código se crean dos objetos de tipo Estudiante:
+    </p>
+
+    <pre><code class="language-kotlin">
+val estudiante = Estudiante()
+val e = Estudiante()
+    </code></pre>
+
+    <!-- 4 -->
+    <h6>¿Qué son las propiedades (atributos)?</h6>
+    <p>
+      Son variables que almacenan información del objeto, como
+      el nombre, edad, carrera y promedio del estudiante.
+    </p>
+
+    <pre><code class="language-kotlin">
+estudiante.nombre = "Juan"
+estudiante.edad = 21
+estudiante.carrera = "Tecnología"
+estudiante.promedio = 8.7
+    </code></pre>
+
+    <!-- 5 -->
+    <h6>¿Qué son los métodos?</h6>
+    <p>
+      Son funciones que definen acciones que puede realizar un objeto.
+      En este caso, el método mostrarDatos devuelve la información
+      del estudiante.
+    </p>
+
+    <pre><code class="language-kotlin">
+fun mostrarDatos(): String {
+    return "$nombre tienes $edad años, cursas $carrera y tu promedio es $promedio"
+}
+    </code></pre>
+
+    <!-- 6 -->
+    <h6>¿Cómo acceder a propiedades y métodos?</h6>
+    <p>
+      Se accede usando el nombre del objeto seguido de un punto.
+      Esto permite modificar atributos o llamar métodos.
+    </p>
+
+    <pre><code class="language-kotlin">
+println(estudiante.mostrarDatos())
+    </code></pre>
+
+    <!-- 7 -->
+    <h6>¿Entrada de datos por teclado?</h6>
+    <p>
+      En Android no se utiliza el teclado como en programas de consola.
+      En esta práctica los datos se asignan directamente en el código
+      para simular la entrada de información.
+    </p>
+  </div>
+</div>
 
   </main>
 
