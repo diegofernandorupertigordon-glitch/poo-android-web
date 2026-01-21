@@ -20,29 +20,168 @@
 </nav>
 
 <main class="container py-5">
-  <h1 class="display-5 mb-4">🌳 Herencia</h1>
 
-  <div class="card shadow-sm">
+  <!-- TÍTULO -->
+  <h1 class="display-5 mb-4">🌳 Herencia en Programación Orientada a Objetos</h1>
+
+  <!-- CONCEPTO -->
+  <div class="card shadow-sm mb-4">
     <div class="card-body">
+      <h4>📘 ¿Qué es la Herencia?</h4>
       <p>
-        La <strong>herencia</strong> permite que una clase herede propiedades y métodos
-        de otra, reutilizando código.
+        La <strong>herencia</strong> es un concepto de la Programación Orientada a Objetos
+        que permite que una clase hija herede atributos y métodos de una clase padre.
       </p>
-
-      <pre><code class="language-kotlin">
-open class Persona(val nombre: String)
-
-class Estudiante(nombre: String) : Persona(nombre)
-      </code></pre>
+      <p>
+        Esto ayuda a <strong>reutilizar código</strong> y a organizar mejor los programas,
+        evitando repetir las mismas funciones.
+      </p>
+      <p>
+        En esta actividad usamos una clase padre llamada <strong>Persona</strong> y una
+        clase hija llamada <strong>Estudiante</strong>.
+      </p>
     </div>
   </div>
+
+  <!-- ESTRUCTURA DE CLASES -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h4>🧱 Clases utilizadas</h4>
+
+      <p><strong>Clase Padre: Persona</strong></p>
+      <ul>
+        <li>nombre : String</li>
+        <li>edad : Int</li>
+        <li>getNombre()</li>
+        <li>getEdad()</li>
+      </ul>
+
+      <p><strong>Clase Hija: Estudiante</strong></p>
+      <ul>
+        <li>carrera : String</li>
+        <li>getCarrera()</li>
+        <li>estudiar()</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- IMPORTANTE -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h4>⚠️ Regla Importante</h4>
+      <p>
+        Cuando una clase hereda de otra, es obligatorio llamar al constructor
+        de la clase padre usando la palabra reservada <strong>super</strong>.
+      </p>
+      <p>
+        Esto asegura que los atributos heredados se inicialicen correctamente
+        antes de usar los de la clase hija.
+      </p>
+    </div>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h4>🎥 Video explicativo</h4>
+
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+        <iframe
+          src="PEGAR_AQUI_TU_LINK_DE_DRIVE/preview"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <p class="mt-3">
+        En este video se explica la creación de la clase padre, la clase hija
+        y la creación de dos objetos usando herencia.
+      </p>
+    </div>
+  </div>
+
+  <!-- CÓDIGO -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h4>💻 Código Kotlin utilizado</h4>
+
+<pre><code class="language-kotlin">
+open class Persona(
+    private val nombre: String,
+    private val edad: Int
+) {
+
+    fun getNombre(): String {
+        return nombre
+    }
+
+    fun getEdad(): String {
+        return edad.toString()
+    }
+}
+
+class Estudiante(
+    nombre: String,
+    edad: Int,
+    private val carrera: String
+) : Persona(nombre, edad) {
+
+    fun getCarrera(): String {
+        return carrera
+    }
+
+    fun estudiar() {
+        println("El estudiante ${getNombre()} está estudiando la carrera de $carrera")
+    }
+}
+
+class MainActivity : ComponentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val estudiante1 = Estudiante("Jose", 23, "Desarrollo")
+        estudiante1.estudiar()
+
+        val estudiante2 = Estudiante("Linda", 21, "Auditoria")
+        estudiante2.estudiar()
+    }
+}
+</code></pre>
+    </div>
+  </div>
+
+  <!-- ACTIVIDADES -->
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h4>📝 Actividades realizadas</h4>
+      <ul>
+        <li>Se creó una clase padre llamada Persona.</li>
+        <li>Se creó una clase hija llamada Estudiante.</li>
+        <li>Se usó el constructor de la clase padre con <strong>super</strong>.</li>
+        <li>Se crearon dos objetos diferentes de la clase Estudiante.</li>
+        <li>Se imprimió la información de cada objeto.</li>
+      </ul>
+    </div>
+  </div>
+
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
+
 <script>
-  document.getElementById("darkModeBtn")
-    .addEventListener("click", () => document.body.classList.toggle("dark"));
+  const btn = document.getElementById("darkModeBtn");
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark");
+  }
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    localStorage.setItem(
+      "darkMode",
+      document.body.classList.contains("dark") ? "enabled" : "disabled"
+    );
+  });
 </script>
 
 </body>
