@@ -5,13 +5,20 @@
   <title>POO | Clases Abstractas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+  <!-- Highlight -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+  <!-- Estilos propios -->
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 
-<body>
+<body class="bg-light">
 
+<!-- NAVBAR -->
 <nav class="navbar navbar-dark bg-dark shadow-sm">
   <div class="container d-flex justify-content-between">
     <a class="navbar-brand" href="index.html">⬅ Volver al inicio</a>
@@ -19,31 +26,177 @@
   </div>
 </nav>
 
+<!-- CONTENIDO -->
 <main class="container py-5">
+
   <h1 class="display-5 mb-4">🎨 Clases Abstractas</h1>
 
+  <!-- INFORMACIÓN DEL TEMA -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+
+      <h4>📘 ¿Qué es una clase abstracta?</h4>
+      <p>
+        Una <strong>clase abstracta</strong> se utiliza como una base para otras clases.
+        No se puede crear objetos directamente de ella, pero permite definir
+        métodos y atributos que serán compartidos por las clases hijas.
+      </p>
+
+      <p>
+        Su principal función es organizar mejor el código cuando existen
+        clases relacionadas que comparten características, pero que realizan
+        ciertas acciones de manera diferente.
+      </p>
+
+      <h5 class="mt-3">🧠 Ejemplo sencillo</h5>
+      <p>
+        En esta práctica se usa una clase abstracta llamada
+        <strong>Empleado</strong> y una clase hija llamada
+        <strong>Docente</strong>.  
+        Todos los empleados tienen nombre y cédula, pero el salario se calcula
+        de forma distinta según el tipo de empleado.
+      </p>
+
+      <h6 class="mt-3">📌 Versión corta (para el profesor)</h6>
+      <p>
+        Una clase abstracta sirve como plantilla para otras clases.
+        No se puede instanciar y obliga a que las clases hijas implementen
+        métodos abstractos.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h4>📹 Video explicativo</h4>
+
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+        <iframe
+          src="PEGA_AQUI_TU_LINK_DE_DRIVE/preview"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <p class="mt-2">
+        👉
+        <a href="PEGA_AQUI_TU_LINK_DE_DRIVE/view" target="_blank">
+          Ver video explicativo
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <!-- CÓDIGO -->
   <div class="card shadow-sm">
     <div class="card-body">
+
+      <h4>📄 Evidencia de la tarea – Código en Kotlin</h4>
+      <p>
+        El siguiente código fue desarrollado en <strong>Android Studio</strong>
+        utilizando <strong>Kotlin</strong>.  
+        Se crea una clase abstracta, una clase hija y se muestran los resultados
+        por consola usando <code>println</code>.
+      </p>
+
       <pre><code class="language-kotlin">
-abstract class Figura {
-    abstract fun dibujar()
+// =======================
+// CLASE ABSTRACTA
+// =======================
+abstract class Empleado(
+    val nombre: String,
+    val cedula: String
+) {
+
+    // Método abstracto (sin cuerpo)
+    abstract fun calcularSalario(): Float
+
+    // Método normal
+    fun mostrarInformacion() {
+        println("Empleado: $nombre")
+        println("Cédula: $cedula")
+        println("Salario: $${calcularSalario()}")
+    }
 }
 
-class Circulo : Figura() {
-    override fun dibujar() {
-        println("Dibujando círculo")
+// =======================
+// CLASE HIJA
+// =======================
+class Docente(
+    nombre: String,
+    cedula: String,
+    val horasClase: Int,
+    val pagoPorHora: Float
+) : Empleado(nombre, cedula) {
+
+    override fun calcularSalario(): Float {
+        return horasClase * pagoPorHora
+    }
+}
+
+// =======================
+// MAIN ACTIVITY
+// =======================
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+
+class MainActivity : ComponentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        println("=== CLASES ABSTRACTAS ===")
+
+        val docente = Docente(
+            nombre = "María González",
+            cedula = "1234567890",
+            horasClase = 120,
+            pagoPorHora = 15.5f
+        )
+
+        println("Salario del docente: $${docente.calcularSalario()}")
+        docente.mostrarInformacion()
+
+        // Esto NO se puede hacer:
+        // val emp = Empleado("Juan", "999")
     }
 }
       </code></pre>
+
+      <h6 class="mt-3">🧾 Resultado en Logcat</h6>
+      <pre><code>
+=== CLASES ABSTRACTAS ===
+Salario del docente: $1860.0
+Empleado: María González
+Cédula: 1234567890
+Salario: $1860.0
+      </code></pre>
+
     </div>
   </div>
+
 </main>
 
+<!-- SCRIPTS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
+
 <script>
-  document.getElementById("darkModeBtn")
-    .addEventListener("click", () => document.body.classList.toggle("dark"));
+  const btn = document.getElementById("darkModeBtn");
+
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark");
+  }
+
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    localStorage.setItem(
+      "darkMode",
+      document.body.classList.contains("dark") ? "enabled" : "disabled"
+    );
+  });
 </script>
 
 </body>
